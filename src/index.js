@@ -1,3 +1,4 @@
+import basicLightbox from 'basiclightbox';
 import { FetchAPI } from './js/api';
 import { createMarkupElemetsGallery } from './js/createMarkupElemetsGallery';
 
