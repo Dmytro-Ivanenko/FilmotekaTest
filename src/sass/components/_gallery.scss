@@ -14,7 +14,8 @@
   border-radius: 5px;
   transition: transform $transition-duration;
 
-  &:hover {
+  &:hover,
+  &:focus {
     transform: scale(1.05);
   }
 }
