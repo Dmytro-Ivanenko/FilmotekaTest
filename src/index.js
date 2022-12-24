@@ -3,7 +3,10 @@ import { createMarkupElemetsGallery } from './js/createMarkupElemetsGallery';
 
 import './js/back-to-top';
 
-const searchForm = document.querySelector('#search-form');
+const debounce = require('lodash.debounce');
+const DEBOUNCE_DELAY = 300;
+
+const searchForm = document.querySelector('.search-form-input');
 const galleryList = document.querySelector('.gallery');
 
 const fetchApi = new FetchAPI();
@@ -13,21 +16,24 @@ document.addEventListener('DOMContentLoaded', async function () {
   fetchApi.page = 1;
   const { data } = await fetchApi.fetchTrendingFilms();
   galleryEl = data.results;
-  console.log(galleryEl);
+  // console.log(galleryEl);
   renderGallery();
 });
-searchForm.addEventListener('submit', trendingFilms);
+
+searchForm.addEventListener('input', debounce(SearchFilms, DEBOUNCE_DELAY));
 
 let galleryEl = [];
 
-async function trendingFilms(e) {
+async function SearchFilms(e) {
   e.preventDefault();
-  galleryList.innerHTML = '';
-  fetchApi.page = 1;
-  const { data } = await fetchApi.fetchTrendingFilms();
+  const { value } = e.target;
+  console.log(value);
+  // galleryList.innerHTML = '';
+  // fetchApi.page = 1;
+  const { data } = await fetchApi.fetchSearchFilms(value.trim());
   galleryEl = data.results;
   console.log(galleryEl);
-  renderGallery();
+  // renderGallery();
 }
 
 function renderGallery() {
