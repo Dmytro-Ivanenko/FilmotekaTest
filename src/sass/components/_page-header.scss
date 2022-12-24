@@ -26,15 +26,21 @@
   font-size: 30px;
   line-height: 35px;
   color: white;
+  transition: transform $transition-duration;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 }
 
 .logo__icon {
-  //   display: inline-block;
-  //   width: 50px;
-  //   height: 50px;
-  //   stroke-width: 0;
   stroke: white;
   fill: transparent;
+  transition: transform $transition-duration;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 }
 .site-nav {
   display: flex;
@@ -55,7 +61,33 @@
   font-size: 12px;
   line-height: 14px;
   color: #ffffff;
+  transition: color $transition-duration;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: red;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  &:focus,
+  &:hover {
+    color: green;
+  }
 }
+
 .search-form {
   display: flex;
   justify-content: center;
