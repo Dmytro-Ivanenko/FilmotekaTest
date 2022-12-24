@@ -17,6 +17,8 @@ export class FetchAPI {
   }
 
   async fetchSearchFilms(searchQuery) {
-    return await axios.get(`${SEARCH_URL}?api_key=${API_KEY}`);
+    return await axios.get(
+      `${SEARCH_URL}?api_key=${API_KEY}&query=${searchQuery}`
+    );
   }
 }
