@@ -6,9 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Filmoteka</title>
 
+    <!-- Normalize -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
+    />
+
+    <!-- FontAwesome, чтобы можно было использовать значок для нашей Back to top button -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
     />
 
     <link rel="stylesheet" href="./css/main.min.css" />
@@ -39,12 +46,12 @@
 
           <form id="search-form" class="search-form">
             <input
+              class="search-form-input"
               type="text"
               name="searchQuery"
               autocomplete="off"
               placeholder="Movie search"
             />
-            <button class="search-button" type="submit">Search</button>
           </form>
         </div>
       </div>

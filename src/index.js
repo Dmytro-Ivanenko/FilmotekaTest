@@ -1,6 +1,8 @@
 import { FetchAPI } from './js/api';
 import { createMarkupElemetsGallery } from './js/createMarkupElemetsGallery';
 
+import './js/back-to-top';
+
 const searchForm = document.querySelector('#search-form');
 const galleryList = document.querySelector('.gallery');
 
