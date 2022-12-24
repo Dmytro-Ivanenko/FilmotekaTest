@@ -352,6 +352,14 @@ ol {
           transform: rotate(90deg);
 }
 
+.modal {
+  background-color: #fff;
+  padding: 50px;
+  border-radius: 5px;
+  width: 600px;
+  height: 400px;
+}
+
 .footer-nav {
   display: -webkit-box;
   display: -ms-flexbox;

@@ -1,9 +1,9 @@
-import basicLightbox from 'basiclightbox';
 import { FetchAPI } from './js/api';
 import { createMarkupElemetsGallery } from './js/createMarkupElemetsGallery';
 
-import './js/back-to-top';
+import '../node_modules/basiclightbox/dist/basicLightbox.min.css';
 
+const basicLightbox = require('basiclightbox');
 const debounce = require('lodash.debounce');
 const DEBOUNCE_DELAY = 300;
 
@@ -76,3 +76,18 @@ function renderGallery() {
   const galleryElements = galleryEl.map(createMarkupElemetsGallery);
   galleryList.insertAdjacentHTML('beforeend', galleryElements.join(''));
 }
+
+const instance = basicLightbox.create(`
+    <div class="modal">
+        <div class="modal-card">
+            
+        </div>
+        <button class="modal-btn-close">Close</button>
+    </div>
+`);
+
+instance.show();
+const modalCard = document.querySelector('.modal-card');
+const modalBtnClose = document.querySelector('.modal-btn-close');
+modalBtnClose.addEventListener('click', instance.close);
+modalCard.textContent = 'Hello';
