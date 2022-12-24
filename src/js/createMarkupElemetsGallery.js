@@ -14,7 +14,7 @@ export function createMarkupElemetsGallery({
   </a>
 
   <div class="info">
-    <p class="info-item">${title}</p>
+    <p class="info-title">${title}</p>
     <div class="info-other">
       <p class="info-item">Жанр: </b>Та хер знає</p>
       <p class="info-item">${release_date}</p>

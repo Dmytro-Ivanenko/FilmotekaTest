@@ -25,17 +25,37 @@
 }
 
 .info {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  row-gap: 10px;
   background-color: #fff;
   padding: 20px 0;
 }
-.info-item {
+
+.info-title {
   font-size: 15px;
   line-height: 0.7;
+  text-transform: uppercase;
+  color: $primary-font-color;
 }
 
 .info-other {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 10px;
+}
+
+.info-item {
+  font-size: 15px;
+  line-height: 0.7;
+  color: $accent-font-color;
+
+  &:not(:last-child)::after {
+    content: '';
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 1px solid currentColor;
+    transform: rotate(90deg);
+  }
 }
