@@ -280,8 +280,9 @@ ol {
 }
 
 .gallery__image {
-  max-width: 100%;
-  display: block;
+  width: 395px;
+  height: 574px;
+  border-radius: 5px;
 }
 
 .info {
@@ -296,7 +297,7 @@ ol {
       flex-wrap: wrap;
   row-gap: 10px;
   background-color: #fff;
-  padding: 20px 0;
+  padding: 20px 10px;
 }
 
 .info-title {
