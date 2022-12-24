@@ -1,19 +1,18 @@
-import "./css/styles.css";
-import { FetchAPI } from "./js/api";
-import { createMarkupElemetsGallery } from "./js/createMarkupElemetsGallery";
+import { FetchAPI } from './js/api';
+import { createMarkupElemetsGallery } from './js/createMarkupElemetsGallery';
 
-const searchForm = document.querySelector("#search-form");
-const galleryList = document.querySelector(".gallery");
+const searchForm = document.querySelector('#search-form');
+const galleryList = document.querySelector('.gallery');
 
 const fetchApi = new FetchAPI();
 
-searchForm.addEventListener("submit", trendingFilms);
+searchForm.addEventListener('submit', trendingFilms);
 
 let galleryEl = [];
 
 async function trendingFilms(e) {
   e.preventDefault();
-  galleryList.innerHTML = "";
+  galleryList.innerHTML = '';
   fetchApi.page = 1;
   const { data } = await fetchApi.fetchTrendingFilms();
   galleryEl = data.results;
@@ -23,5 +22,5 @@ async function trendingFilms(e) {
 
 function renderGallery() {
   const galleryElements = galleryEl.map(createMarkupElemetsGallery);
-  galleryList.insertAdjacentHTML("beforeend", galleryElements.join(""));
+  galleryList.insertAdjacentHTML('beforeend', galleryElements.join(''));
 }

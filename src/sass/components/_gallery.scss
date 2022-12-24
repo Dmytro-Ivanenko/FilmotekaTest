@@ -1,0 +1,40 @@
+.gallery {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  column-gap: 16px;
+  row-gap: 32px;
+  padding: 60px 32px;
+}
+
+.photo-card {
+  width: 394px;
+  height: 634px;
+  border-radius: 5px;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.photo-card:hover {
+  transform: scale(1.05);
+}
+
+.gallery__image {
+  max-width: 100%;
+  display: block;
+}
+
+.info {
+  padding: 20px 0;
+}
+.info-item {
+  font-size: 15px;
+  line-height: 0.7;
+}
+
+.info-other {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+}

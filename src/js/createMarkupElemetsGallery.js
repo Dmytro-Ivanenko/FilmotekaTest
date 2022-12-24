@@ -9,8 +9,7 @@ export function createMarkupElemetsGallery({
       class="gallery__image"
       src="https://image.tmdb.org/t/p/w1280${poster_path}"
       alt="${title}"
-      width = '395';
-      height = '574';
+
     />
   </a>
 
@@ -23,3 +22,5 @@ export function createMarkupElemetsGallery({
   </div>
 </div>`;
 }
+// width = '395';
+// height = '574';
