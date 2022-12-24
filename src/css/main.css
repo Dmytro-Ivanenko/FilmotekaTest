@@ -10,6 +10,10 @@
 }
 
 body {
+  background-image: url("../images/background/1.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
   background-color: #ffffff;
   color: #000000;
   font-family: Roboto, sans-serif;
@@ -198,6 +202,7 @@ ol {
 }
 
 .info {
+  background-color: #fff;
   padding: 20px 0;
 }
 
