@@ -1,12 +1,16 @@
 export function createMarkupElemetsGallery({
+  id,
   title,
   poster_path,
   release_date = [],
 }) {
-  return `<div class="photo-card">
+  return `<div class="photo-card"
+  data-id=${id}
+  >
   <a class="gallery__item">
     <img
       class="gallery__image"
+      loading="lazy"
       src="https://image.tmdb.org/t/p/w1280${poster_path}"
       alt="${title}"
 

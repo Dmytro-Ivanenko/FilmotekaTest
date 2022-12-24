@@ -12,7 +12,20 @@ const searchResult = document.querySelector('.search-result');
 
 const fetchApi = new FetchAPI();
 
+document.addEventListener('click', onCardClick);
 document.addEventListener('DOMContentLoaded', renderTrendingFilms());
+
+let galleryEl = [];
+
+function onCardClick(e) {
+  if (e.path[2].className !== 'photo-card') {
+    return;
+  }
+
+  if (e.path[2].className === 'photo-card') {
+    console.dir(e.path[2].dataset.id);
+  }
+}
 
 async function renderTrendingFilms() {
   galleryList.innerHTML = '';
@@ -23,8 +36,6 @@ async function renderTrendingFilms() {
 }
 
 searchForm.addEventListener('input', debounce(SearchFilms, DEBOUNCE_DELAY));
-
-let galleryEl = [];
 
 async function SearchFilms(e) {
   const { value } = e.target;
@@ -49,6 +60,7 @@ async function SearchFilms(e) {
     if (data.total_results > 0) {
       searchResult.innerHTML = '';
       galleryEl = data.results;
+      console.log(galleryEl);
       renderGallery();
     }
   } catch (error) {
