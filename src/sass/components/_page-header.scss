@@ -26,12 +26,11 @@
   font-size: 30px;
   line-height: 1.166;
   color: white;
-  transition: transform $transition-duration;
+  transition: color $transition-duration;
 
   &:hover,
   &:focus {
     color: $accent-font-color;
-    transform: scale(1.05);
   }
 }
 
@@ -104,10 +103,16 @@
   width: 394px;
   padding: 0.5em 1em 0.5em 2.5em;
   margin-bottom: 0px;
+  transition: transform $transition-duration;
 }
 
 .search-form-input::placeholder {
   color: #fff;
+}
+
+.search-form-input:active,
+.search-form-input:hover {
+  transform: scale(1.05);
 }
 
 .search-form-input:focus {
