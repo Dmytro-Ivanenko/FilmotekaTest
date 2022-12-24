@@ -22,3 +22,6 @@ export class FetchAPI {
     );
   }
 }
+
+// .then(response => console.log('жопа'));
+// .catch(err => console.log('жопа'));
