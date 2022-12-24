@@ -28,12 +28,12 @@ async function SearchFilms(e) {
   e.preventDefault();
   const { value } = e.target;
   console.log(value);
-  // galleryList.innerHTML = '';
-  // fetchApi.page = 1;
+  galleryList.innerHTML = '';
+  fetchApi.page = 1;
   const { data } = await fetchApi.fetchSearchFilms(value.trim());
   galleryEl = data.results;
   console.log(galleryEl);
-  // renderGallery();
+  renderGallery();
 }
 
 function renderGallery() {
