@@ -6,6 +6,14 @@ const galleryList = document.querySelector('.gallery');
 
 const fetchApi = new FetchAPI();
 
+document.addEventListener('DOMContentLoaded', async function () {
+  galleryList.innerHTML = '';
+  fetchApi.page = 1;
+  const { data } = await fetchApi.fetchTrendingFilms();
+  galleryEl = data.results;
+  console.log(galleryEl);
+  renderGallery();
+});
 searchForm.addEventListener('submit', trendingFilms);
 
 let galleryEl = [];
