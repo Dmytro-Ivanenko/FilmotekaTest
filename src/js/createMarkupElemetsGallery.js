@@ -22,5 +22,3 @@ export function createMarkupElemetsGallery({
   </div>
 </div>`;
 }
-// width = '395';
-// height = '574';

@@ -8,6 +8,7 @@ const DEBOUNCE_DELAY = 300;
 
 const searchForm = document.querySelector('.search-form-input');
 const galleryList = document.querySelector('.gallery');
+const searchResult = document.querySelector('.search-result');
 
 const fetchApi = new FetchAPI();
 
@@ -37,9 +38,19 @@ async function SearchFilms(e) {
     galleryList.innerHTML = '';
     fetchApi.page = 1;
     const { data } = await fetchApi.fetchSearchFilms(value.trim());
-    galleryEl = data.results;
-    console.log(galleryEl);
-    renderGallery();
+
+    if (data.total_results === 0) {
+      searchResult.innerHTML =
+        'Search result not successful. Enter the correct movie name and!';
+      renderTrendingFilms();
+      return;
+    }
+
+    if (data.total_results > 0) {
+      searchResult.innerHTML = '';
+      galleryEl = data.results;
+      renderGallery();
+    }
   } catch (error) {
     console.log(error.massage);
   }
