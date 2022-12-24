@@ -17,13 +17,16 @@ document.addEventListener('DOMContentLoaded', renderTrendingFilms());
 
 let galleryEl = [];
 
-function onCardClick(e) {
+async function onCardClick(e) {
   if (e.path[2].className !== 'photo-card') {
     return;
   }
 
   if (e.path[2].className === 'photo-card') {
     console.dir(e.path[2].dataset.id);
+    id = e.path[2].dataset.id;
+    const { data } = await fetchApi.getFilmToId(id);
+    console.log(data);
   }
 }
 
