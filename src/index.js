@@ -34,7 +34,10 @@ async function onCardClick(e) {
 async function renderTrendingFilms() {
   galleryList.innerHTML = '';
   fetchApi.page = 1;
+
+  await fetchApi.fillGenreList();
   const { data } = await fetchApi.fetchTrendingFilms();
+
   galleryEl = data.results;
   renderGallery();
 }
@@ -64,7 +67,7 @@ async function SearchFilms(e) {
     if (data.total_results > 0) {
       searchResult.innerHTML = '';
       galleryEl = data.results;
-      console.log(galleryEl);
+      console.dir(galleryEl);
       renderGallery();
     }
   } catch (error) {
@@ -73,7 +76,9 @@ async function SearchFilms(e) {
 }
 
 function renderGallery() {
-  const galleryElements = galleryEl.map(createMarkupElemetsGallery);
+  const galleryElements = galleryEl.map(elem =>
+    createMarkupElemetsGallery(elem, fetchApi)
+  );
   galleryList.insertAdjacentHTML('beforeend', galleryElements.join(''));
 }
 

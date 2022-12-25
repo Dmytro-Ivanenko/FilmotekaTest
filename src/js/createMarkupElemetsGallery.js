@@ -1,9 +1,15 @@
-export function createMarkupElemetsGallery({
-  id,
-  title,
-  poster_path,
-  release_date = [],
-}) {
+export function createMarkupElemetsGallery(
+  { id, title, poster_path, release_date = '', genre_ids },
+  fetchApi
+) {
+  const genres = genre_ids
+    .map(genreId => {
+      return fetchApi.getGenreById(genreId);
+    })
+    .join(', ');
+
+  const dateYear = new Date(release_date).getFullYear();
+
   return `<div class="photo-card"
   data-id=${id}
   >
@@ -20,8 +26,8 @@ export function createMarkupElemetsGallery({
   <div class="info">
     <p class="info-title">${title}</p>
     <div class="info-other">
-      <p class="info-item">Жанр: </b>Та хер знає</p>
-      <p class="info-item">${release_date}</p>
+      <p class="info-item">Жанр: </b>${genres}</p>
+      <p class="info-item">${dateYear}</p>
     </div>
   </div>
 </div>`;

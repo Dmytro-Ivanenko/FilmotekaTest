@@ -10,6 +10,7 @@ const GANRE_LIST_URL = `${BASE_URL}/genre/movie/list?api_key=${API_KEY}`;
 export class FetchAPI {
   constructor() {
     this.page = 1;
+    this.genreList = [];
   }
 
   async fetchTrendingFilms() {
@@ -25,14 +26,22 @@ export class FetchAPI {
   async getFilmToId(id) {
     return await axios.get(`${ID_URL}${id}?api_key=${API_KEY}`);
   }
-
-  async getGenre(genreId) {
+   //  запит на список жанрів
+  
+  async fillGenreList() {
     const response = await axios.get(GANRE_LIST_URL);
-    const genre = response.data.genres.filter(({ id }) => {
+    this.genreList = response.data.genres;
+    return this.genreList;
+  }
+
+  getGenreById(genreId) {
+    const genre = this.genreList.filter(({ id }) => {
       if (id === genreId) {
         return true;
       }
     });
+
     return genre[0].name;
   }
+  
 }
