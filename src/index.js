@@ -27,12 +27,11 @@ async function onCardClick(e) {
   }
 
   if (e.path[2].className === 'photo-card') {
-    console.dir(e.path[2].dataset.id);
+    // console.dir(e.path[2].dataset.id);
     id = e.path[2].dataset.id;
     const { data } = await fetchApi.getFilmToId(id);
-    console.log(data);
+    // console.log(data);
     createModalCardMarkup(basicLightbox, data);
-    // modalCard.textContent = data.title;
     instance.show();
   }
 }
@@ -42,7 +41,7 @@ async function renderTrendingFilms() {
   fetchApi.page = 1;
   await fetchApi.fillGenreList();
   const { data } = await fetchApi.fetchTrendingFilms();
-  console.log(data);
+  // console.log(data);
   galleryEl = data.results;
   renderGallery();
 }
