@@ -1,12 +1,16 @@
 import { FetchAPI } from './js/api';
 import { createMarkupElemetsGallery } from './js/createMarkupElemetsGallery';
+import { createModalCardMarkup } from './js/createModalCardMarkup';
 
 import '../node_modules/basiclightbox/dist/basicLightbox.min.css';
 
 const basicLightbox = require('basiclightbox');
+const instance = createModalCardMarkup(basicLightbox);
 const debounce = require('lodash.debounce');
 const DEBOUNCE_DELAY = 300;
 
+const modalCard = instance.element().querySelector('.modal-card');
+const modalBtnClose = instance.element().querySelector('.modal-btn-close');
 const searchForm = document.querySelector('.search-form-input');
 const galleryList = document.querySelector('.gallery');
 const searchResult = document.querySelector('.search-result');
@@ -15,6 +19,7 @@ const fetchApi = new FetchAPI();
 
 document.addEventListener('click', onCardClick);
 document.addEventListener('DOMContentLoaded', renderTrendingFilms());
+modalBtnClose.addEventListener('click', instance.close);
 
 let galleryEl = [];
 
@@ -28,6 +33,8 @@ async function onCardClick(e) {
     id = e.path[2].dataset.id;
     const { data } = await fetchApi.getFilmToId(id);
     console.log(data);
+    modalCard.textContent = data.title;
+    instance.show();
   }
 }
 
@@ -76,18 +83,3 @@ function renderGallery() {
   const galleryElements = galleryEl.map(createMarkupElemetsGallery);
   galleryList.insertAdjacentHTML('beforeend', galleryElements.join(''));
 }
-
-const instance = basicLightbox.create(`
-    <div class="modal">
-        <div class="modal-card">
-            
-        </div>
-        <button class="modal-btn-close">Close</button>
-    </div>
-`);
-
-instance.show();
-const modalCard = document.querySelector('.modal-card');
-const modalBtnClose = document.querySelector('.modal-btn-close');
-modalBtnClose.addEventListener('click', instance.close);
-modalCard.textContent = 'Hello';
