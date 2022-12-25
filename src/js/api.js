@@ -29,7 +29,15 @@ export class FetchAPI {
    //  запит на список жанрів
   
   async fillGenreList() {
+
+  async fillGenreList() {
     const response = await axios.get(GANRE_LIST_URL);
+    this.genreList = response.data.genres;
+    return this.genreList;
+  }
+
+  getGenreById(genreId) {
+    const genre = this.genreList.filter(({ id }) => {
     this.genreList = response.data.genres;
     return this.genreList;
   }
@@ -40,6 +48,7 @@ export class FetchAPI {
         return true;
       }
     });
+
 
     return genre[0].name;
   }
