@@ -10,13 +10,11 @@ export function createMarkupElemetsGallery(
 
   const dateYear = new Date(release_date).getFullYear();
 
-  URL;
-
   if (!poster_path) {
     images =
       'https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg';
   } else {
-    images = `https://image.tmdb.org/t/p/w1280${poster_path}`;
+    // images = `https://image.tmdb.org/t/p/w1280${poster_path}`;
   }
 
   return `<div class="photo-card"
