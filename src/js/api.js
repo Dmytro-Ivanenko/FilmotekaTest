@@ -26,9 +26,7 @@ export class FetchAPI {
   async getFilmToId(id) {
     return await axios.get(`${ID_URL}${id}?api_key=${API_KEY}`);
   }
-   //  запит на список жанрів
-  
-  async fillGenreList() {
+  //  запит на список жанрів
 
   async fillGenreList() {
     const response = await axios.get(GANRE_LIST_URL);
@@ -38,8 +36,9 @@ export class FetchAPI {
 
   getGenreById(genreId) {
     const genre = this.genreList.filter(({ id }) => {
-    this.genreList = response.data.genres;
-    return this.genreList;
+      this.genreList = response.data.genres;
+      return this.genreList;
+    });
   }
 
   getGenreById(genreId) {
@@ -49,8 +48,6 @@ export class FetchAPI {
       }
     });
 
-
     return genre[0].name;
   }
-  
 }
