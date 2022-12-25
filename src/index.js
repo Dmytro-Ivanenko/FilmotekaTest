@@ -2,8 +2,6 @@ import { FetchAPI } from './js/api';
 import { createMarkupElemetsGallery } from './js/createMarkupElemetsGallery';
 import { createModalCardMarkup } from './js/createModalCardMarkup';
 
-import '../node_modules/basiclightbox/dist/basicLightbox.min.css';
-
 const basicLightbox = require('basiclightbox');
 const instance = createModalCardMarkup(basicLightbox);
 const debounce = require('lodash.debounce');
@@ -33,7 +31,8 @@ async function onCardClick(e) {
     id = e.path[2].dataset.id;
     const { data } = await fetchApi.getFilmToId(id);
     console.log(data);
-    modalCard.textContent = data.title;
+    createModalCardMarkup(basicLightbox, data);
+    // modalCard.textContent = data.title;
     instance.show();
   }
 }
@@ -41,7 +40,9 @@ async function onCardClick(e) {
 async function renderTrendingFilms() {
   galleryList.innerHTML = '';
   fetchApi.page = 1;
+  await fetchApi.fillGenreList();
   const { data } = await fetchApi.fetchTrendingFilms();
+  console.log(data);
   galleryEl = data.results;
   renderGallery();
 }
@@ -80,6 +81,8 @@ async function SearchFilms(e) {
 }
 
 function renderGallery() {
-  const galleryElements = galleryEl.map(createMarkupElemetsGallery);
+  const galleryElements = galleryEl.map(elem =>
+    createMarkupElemetsGallery(elem, fetchApi)
+  );
   galleryList.insertAdjacentHTML('beforeend', galleryElements.join(''));
 }

@@ -26,13 +26,19 @@ export class FetchAPI {
     return await axios.get(`${ID_URL}${id}?api_key=${API_KEY}`);
   }
 
-  async getGenre(genreId) {
+  async fillGenreList() {
     const response = await axios.get(GANRE_LIST_URL);
-    const genre = response.data.genres.filter(({ id }) => {
+    this.genreList = response.data.genres;
+    return this.genreList;
+  }
+
+  getGenreById(genreId) {
+    const genre = this.genreList.filter(({ id }) => {
       if (id === genreId) {
         return true;
       }
     });
+
     return genre[0].name;
   }
 }
