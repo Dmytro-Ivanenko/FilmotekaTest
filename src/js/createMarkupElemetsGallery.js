@@ -3,6 +3,7 @@ export function createMarkupElemetsGallery(
   fetchApi
 ) {
   const genres = genre_ids
+    .slice(0, 3)
     .map(genreId => {
       return fetchApi.getGenreById(genreId);
     })

@@ -13,32 +13,28 @@ export class FetchAPI {
     this.genreList = [];
   }
 
+  // trends
   async fetchTrendingFilms() {
     return await axios.get(`${TREND_URL}?api_key=${API_KEY}`);
   }
 
+  // search
   async fetchSearchFilms(searchQuery) {
     return await axios.get(
       `${SEARCH_URL}?api_key=${API_KEY}&query=${searchQuery}`
     );
   }
 
+  // by ID
   async getFilmToId(id) {
     return await axios.get(`${ID_URL}${id}?api_key=${API_KEY}`);
   }
-  //  запит на список жанрів
 
+  // genres
   async fillGenreList() {
     const response = await axios.get(GANRE_LIST_URL);
     this.genreList = response.data.genres;
     return this.genreList;
-  }
-
-  getGenreById(genreId) {
-    const genre = this.genreList.filter(({ id }) => {
-      this.genreList = response.data.genres;
-      return this.genreList;
-    });
   }
 
   getGenreById(genreId) {
