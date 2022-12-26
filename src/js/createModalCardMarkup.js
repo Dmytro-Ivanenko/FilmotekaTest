@@ -1,5 +1,7 @@
-export function createModalCardMarkup(basicLightbox, data) {
-  console.log(data);
+import * as basicLightbox from 'basiclightbox';
+
+export function createModalCardMarkup(data) {
+  //   console.log(data);
   const instance = basicLightbox.create(`
     <div class="modal">
         <button class="modal-btn-close">X</button>
