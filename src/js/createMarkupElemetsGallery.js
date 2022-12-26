@@ -9,8 +9,7 @@ export function createMarkupElemetsGallery(
     .join(', ');
 
   const dateYear = new Date(release_date).getFullYear();
-
-  URL;
+  let images = '';
 
   if (!poster_path) {
     images =
