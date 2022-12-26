@@ -26,6 +26,10 @@ export class FetchAPI {
     return await axios.get(`${ID_URL}${id}?api_key=${API_KEY}`);
   }
 
+  async getMetaById(id) {
+    return await axios.get(`${ID_URL}${id}/videos?api_key=${API_KEY}&language=en-US`)
+  }
+
   async fillGenreList() {
     const response = await axios.get(GANRE_LIST_URL);
     this.genreList = response.data.genres;
