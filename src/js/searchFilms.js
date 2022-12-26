@@ -3,6 +3,7 @@ import { renderTrendingFilms } from './renderTrendingFilms';
 import { renderGallery } from './renderGallery';
 
 export async function searchFilms(e) {
+  debugger;
   const { value } = e.target;
   console.log(value);
 

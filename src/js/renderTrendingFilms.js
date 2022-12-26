@@ -7,5 +7,6 @@ export async function renderTrendingFilms() {
   await fetchApi.fillGenreList();
   const { data } = await fetchApi.fetchTrendingFilms();
   renderGallery(data.results);
+
   pagination.showPagination().addPagesNumbers(data);
 }

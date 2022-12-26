@@ -15,6 +15,7 @@ export const searchForm = document.querySelector('.search-form-input');
 export const galleryList = document.querySelector('.gallery');
 export const searchResult = document.querySelector('.search-result');
 
+debugger;
 // Classes
 export const fetchApi = new FetchAPI();
 export const pagination = new Pagination();
