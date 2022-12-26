@@ -4,7 +4,6 @@ import { renderGallery } from './renderGallery';
 
 export async function searchFilms(e) {
   const { value } = e.target;
-  console.log(value);
 
   try {
     if (value.trim() === '') {
@@ -25,9 +24,7 @@ export async function searchFilms(e) {
 
     if (data.total_results > 0) {
       searchResult.innerHTML = '';
-      galleryEl = data.results;
-      console.log(galleryEl);
-      renderGallery();
+      renderGallery(data.results);
     }
   } catch (error) {
     console.log(error);

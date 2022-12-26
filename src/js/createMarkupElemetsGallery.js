@@ -29,6 +29,8 @@ export function createMarkupElemetsGallery(
       alt="${title}"
     />
   </a>
+  <button class="gallery-item-trailer">Дивитися трейлер</button>
+
   <div class="info">
     <p class="info-title">${title}</p>
     <div class="info-other">
