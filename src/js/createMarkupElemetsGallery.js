@@ -7,14 +7,13 @@ export function createMarkupElemetsGallery(
       return fetchApi.getGenreById(genreId);
     })
     .join(', ');
-
   const dateYear = new Date(release_date).getFullYear();
+  let images = '';
 
   if (!poster_path) {
     images =
       'https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg';
   } else {
-    debugger;
     images = `https://image.tmdb.org/t/p/w1280${poster_path}`;
   }
 

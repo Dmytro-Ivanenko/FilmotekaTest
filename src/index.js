@@ -84,5 +84,7 @@ function renderGallery() {
   const galleryElements = galleryEl.map(elem =>
     createMarkupElemetsGallery(elem, fetchApi)
   );
+
+  console.dir(galleryElements);
   galleryList.insertAdjacentHTML('beforeend', galleryElements.join(''));
 }
