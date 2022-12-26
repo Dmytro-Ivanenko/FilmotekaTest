@@ -26,7 +26,7 @@ async function onCardClick(e) {
     return;
   }
 
-  id = e.path[2].dataset.id;
+  const id = e.path[2].dataset.id;
   const { data } = await fetchApi.getFilmToId(id);
 
   createModalCardMarkup();
