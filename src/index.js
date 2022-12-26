@@ -26,12 +26,9 @@ async function onCardClick(e) {
     return;
   }
 
-  if (e.path[2].className === 'photo-card') {
-    // console.dir(e.path[2].dataset.id);
-    id = e.path[2].dataset.id;
-    const { data } = await fetchApi.getFilmToId(id);
-    // console.log(data);
-    createModalCardMarkup();
-    instance.show();
-  }
+  id = e.path[2].dataset.id;
+  const { data } = await fetchApi.getFilmToId(id);
+
+  createModalCardMarkup();
+  instance.show();
 }
