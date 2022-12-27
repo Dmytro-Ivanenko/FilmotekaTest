@@ -1,14 +1,13 @@
 import * as basicLightbox from 'basiclightbox';
 
-export function createModalCardMarkup({genre_ids, poster_path, title, vote_average, vote_count, popularity, original_title, overview}, key, fetchApi) {
-    console.log(title);
-    const genres = genre_ids
-    .map(genreId => {
-      return fetchApi.getGenreById(genreId);
+export function createModalCardMarkup({genres, poster_path, title, vote_average, vote_count, popularity, original_title, overview}, key, fetchApi) {
+    // console.log(title);
+    const genreNames = genres
+    .map(genre => {
+      return genre.name;
     })
     .join(', ');
 
-  const dateYear = new Date(release_date).getFullYear();
   let images = '';
 
   if (!poster_path) {
@@ -24,7 +23,7 @@ export function createModalCardMarkup({genre_ids, poster_path, title, vote_avera
             <div class="modal-card__images">
                 <img
                 class="modal-card__image"
-                src="${poster_path}"
+                src="${images}"
                 alt="${title}"
                 />
             </div>
@@ -46,7 +45,7 @@ export function createModalCardMarkup({genre_ids, poster_path, title, vote_avera
                     </tr>
                     <tr class="modal-card__table-row">
                     <td class="modal-card__table-data modal-card__table-data--grey">Genre</td>
-                    <td class="modal-card__table-data">${genres}</td>
+                    <td class="modal-card__table-data">${genreNames}</td>
                     </tr>
                 </tbody>
                 </table>
@@ -56,7 +55,7 @@ export function createModalCardMarkup({genre_ids, poster_path, title, vote_avera
                 <div class="modal-card__btn">
                     <button class="modal-card__btn-watched">add to Watched</button>
                     <button class="modal-card__btn-queue">add to queue</button>
-                    <a href="https://www.youtube.com/watch?v=${key}" target="_blank"><button class ="modal-card__btn-showTrailer">WATCH TRAILER</button></a>
+                    <a class = "youtube-video-link" href="https://www.youtube.com/watch?v=${key}" target="_blank"><button class ="modal-card__btn-showTrailer">WATCH TRAILER</button></a>
                 </div>
             </div>
         </div>

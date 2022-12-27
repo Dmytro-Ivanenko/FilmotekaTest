@@ -601,14 +601,3 @@ ol {
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
 }/*# sourceMappingURL=main.css.map */
-
-.modal-card__btn-showTrailer {
-  display: inline-block;
-  width: 136px;
-  height: 44px;
-  border-radius: 5px;
-  text-transform: uppercase;
-  color: #000000;
-  background-color: transparent;
-  cursor: pointer;
-}

@@ -38,7 +38,7 @@ async function onCardClick(e) {
         key = filmMetaResp.data.results[i].key;
       }
     }
-
+console.log(filmInfoResp.data)
     const instance = createModalCardMarkup(filmInfoResp.data, key);
     const modalCard = instance.element().querySelector('.modal-card');
     const modalBtnClose = instance.element().querySelector('.modal-btn-close');
