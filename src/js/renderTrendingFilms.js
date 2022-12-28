@@ -1,4 +1,4 @@
-import { galleryList, fetchApi, pagination } from '../index';
+import { galleryList, fetchApi } from '../index';
 import { renderGallery } from './renderGallery';
 import { addPagination } from './pagination';
 
