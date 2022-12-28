@@ -1,7 +1,7 @@
 import { FetchAPI } from './js/api';
 import { renderTrendingFilms } from './js/renderTrendingFilms';
 import { searchFilms } from './js/searchFilms';
-import { onCardClick } from './js/onCardClick';
+import { onCardClick, closeModalEcs } from './js/onCardClick';
 import { getTrailerFilm } from './js/getTrailerFilm';
 import { backToTop } from './js/backToTop';
 
@@ -17,4 +17,5 @@ export const fetchApi = new FetchAPI();
 document.addEventListener('click', onCardClick);
 document.addEventListener('DOMContentLoaded', renderTrendingFilms());
 document.addEventListener('click', getTrailerFilm);
+document.addEventListener('keydown', closeModalEcs);
 searchForm.addEventListener('input', debounce(searchFilms, DEBOUNCE_DELAY));
