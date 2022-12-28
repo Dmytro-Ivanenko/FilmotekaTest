@@ -1,14 +1,14 @@
-const btn = $('#back-to-top');
+export const backToTop = $('#back-to-top');
 
 $(window).scroll(function () {
   if ($(window).scrollTop() > 300) {
-    btn.addClass('show');
+    backToTop.addClass('show');
   } else {
-    btn.removeClass('show');
+    backToTop.removeClass('show');
   }
 });
 
-btn.on('click', function (e) {
+backToTop.on('click', function (e) {
   e.preventDefault();
   $('html, body').animate({ scrollTop: 0 }, '300');
 });

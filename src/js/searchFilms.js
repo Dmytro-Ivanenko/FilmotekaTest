@@ -4,7 +4,6 @@ import { renderGallery } from './renderGallery';
 
 export async function searchFilms(e) {
   const { value } = e.target;
-  console.log(value);
 
   try {
     if (value.trim() === '') {
