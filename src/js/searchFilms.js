@@ -1,9 +1,8 @@
-import { galleryList, fetchApi, searchResult } from '../index';
+import { galleryList, fetchApi, searchResult, pagination } from '../index';
 import { renderTrendingFilms } from './renderTrendingFilms';
 import { renderGallery } from './renderGallery';
 
 export async function searchFilms(e) {
-  debugger;
   const { value } = e.target;
   console.log(value);
 
@@ -26,12 +25,9 @@ export async function searchFilms(e) {
 
     if (data.total_results > 0) {
       searchResult.innerHTML = '';
-      galleryEl = data.results;
-      console.log(galleryEl);
-      renderGallery();
+      renderGallery(data.results);
     }
   } catch (error) {
     console.log(error);
-    console.log('hello');
   }
 }

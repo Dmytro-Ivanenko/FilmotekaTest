@@ -9,13 +9,12 @@ const GANRE_LIST_URL = `${BASE_URL}/genre/movie/list?api_key=${API_KEY}`;
 
 export class FetchAPI {
   constructor() {
-    this.page = 1;
     this.genreList = [];
   }
 
   // trends
-  async fetchTrendingFilms() {
-    return await axios.get(`${TREND_URL}?api_key=${API_KEY}`);
+  async fetchTrendingFilms(page = 1) {
+    return await axios.get(`${TREND_URL}?api_key=${API_KEY}&page=${page}`);
   }
 
   // search
